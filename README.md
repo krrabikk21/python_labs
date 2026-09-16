@@ -1,1 +1,3 @@
-# python_labs
+# python_labs 
+
+## Кароче тут крутые лабы
