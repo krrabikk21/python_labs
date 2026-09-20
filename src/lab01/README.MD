@@ -6,7 +6,7 @@
 **Ввод:** имя(строка),возраст(целое)
 
 **Вывод:** `Привет, <имя>! Через год тебе будет <возраст+1>`
-![скрин]("C:\Users\krrab\Desktop\python_labs\images\lab01\01_greeting.png")
+![скрин](".\python_labs\images\lab01\01_greeting.png")
 
 ## 2 Задание
 
