@@ -75,3 +75,26 @@
 
 ![скрин](./images/lab01/06_och_zaoch.png)
 
+
+## Лабораторная работа №2 — коллекции и матрицы (list/tuple/set/dict)
+
+### 1 Задание - `arrays.py`
+
+#### `min_max(nums: list[float | int]) -> tuple[float | int, float | int]`
+
+Вернуть кортеж `(минимум, максимум)`. Если список пуст — `ValueError`.
+
+![скрин](./images/lab02/01_arrays_minmax.png)
+
+#### `unique_sorted(nums: list[float | int]) -> list[float | int]`
+
+Вернуть **отсортированный** список **уникальных** значений (по возрастанию).
+
+![скрин](./images/lab02/01_arrays_unique_sorted.png)
+
+#### '+`flatten(mat: list[list | tuple]) -> list`
+
+«Расплющить» список списков/кортежей в один список по строкам (row-major). Если встретилась строка/элемент, который не является списком/кортежем — `TypeError`.
+
+![скрин](./images/lab02/01_arrays_flatten.png)
+
