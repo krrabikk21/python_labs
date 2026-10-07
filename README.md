@@ -92,7 +92,7 @@
 
 ![скрин](./images/lab02/01_arrays_unique_sorted.png)
 
-#### '+`flatten(mat: list[list | tuple]) -> list`
+#### '`flatten(mat: list[list | tuple]) -> list`
 
 «Расплющить» список списков/кортежей в один список по строкам (row-major). Если встретилась строка/элемент, который не является списком/кортежем — `TypeError`.
 
