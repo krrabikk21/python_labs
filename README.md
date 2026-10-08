@@ -109,12 +109,46 @@ print(f'[] → {min_max([])}')
 #### `unique_sorted(nums: list[float | int]) -> list[float | int]`
 
 Вернуть **отсортированный** список **уникальных** значений (по возрастанию).
+```python 
+def unique_sorted(nums: list[float | int]) -> list[float | int]:
+    res = []
+    for i in nums:
+        if i not in res:
+            res.append(i)
+    for i in range(len(res)):
+        for j in range(len(res)-1 -i):
+            if res[j]>res[j+1]:
+                res[j], res[j+1] = res[j+1], res[j]
+    return res
+
+print('unique_sorted')
+print(unique_sorted([3, 1, 2, 1, 3]))
+print(unique_sorted([]))
+print(unique_sorted([-1, -1, 0, 2, 2]))
+print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
+```
 
 ![скрин](./images/lab02/01_arrays_unique_sorted.png)
 
 #### '`flatten(mat: list[list | tuple]) -> list`
 
 «Расплющить» список списков/кортежей в один список по строкам (row-major). Если встретилась строка/элемент, который не является списком/кортежем — `TypeError`.
+```python
+def flatten(mat: list[list | tuple]) -> list:
+    res=[]
+    for i in mat:
+        if type(i)== list or type(i)== tuple:
+            for new in i:
+                res.append(new)
+        else:
+            raise TypeError
+    return res
+print('flatten')
+print(flatten([[1, 2], [3, 4]]))
+print(flatten([[1, 2], (3, 4, 5)]))
+print(flatten([[1], [], [2, 3]]))
+print(flatten([[1, 2], "ab"]))
+```
 
 ![скрин](./images/lab02/01_arrays_flatten.png)
 

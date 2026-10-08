@@ -9,12 +9,12 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
         if nums[i]>a:
             a=nums[i]
     return b, a
-print('min_max')
-print(f'[3, -1, 5, 5, 0] → {min_max([3, -1, 5, 5, 0])}')
-print(f'[42] → {min_max([42])}')
-print(f'[-5, -2, -9] → {min_max([-5, -2, -9])}')
-print(f'[1.5, 2, 2.0, -3.1] → {min_max([1.5, 2, 2.0, -3.1])}')
-print(f'[] → {min_max([])}') 
+# print('min_max')
+# print(f'[3, -1, 5, 5, 0] → {min_max([3, -1, 5, 5, 0])}')
+# print(f'[42] → {min_max([42])}')
+# print(f'[-5, -2, -9] → {min_max([-5, -2, -9])}')
+# print(f'[1.5, 2, 2.0, -3.1] → {min_max([1.5, 2, 2.0, -3.1])}')
+# print(f'[] → {min_max([])}') 
 
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
     res = []
@@ -27,13 +27,11 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
                 res[j], res[j+1] = res[j+1], res[j]
     return res
 
-
-
-#print('unique_sorted')
-#print(unique_sorted([3, 1, 2, 1, 3]))
-#print(unique_sorted([]))
-#print(unique_sorted([-1, -1, 0, 2, 2]))
-#print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
+# print('unique_sorted')
+# print(unique_sorted([3, 1, 2, 1, 3]))
+# print(unique_sorted([]))
+# print(unique_sorted([-1, -1, 0, 2, 2]))
+# print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
 
 
 def flatten(mat: list[list | tuple]) -> list:
