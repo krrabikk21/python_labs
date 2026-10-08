@@ -96,6 +96,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
         if nums[i]>a:
             a=nums[i]
     return b, a
+    
 print('min_max')
 print(f'[3, -1, 5, 5, 0] → {min_max([3, -1, 5, 5, 0])}')
 print(f'[42] → {min_max([42])}')
@@ -122,10 +123,10 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
     return res
 
 print('unique_sorted')
-print(unique_sorted([3, 1, 2, 1, 3]))
-print(unique_sorted([]))
-print(unique_sorted([-1, -1, 0, 2, 2]))
-print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
+print(f'[3, 1, 2, 1, 3] → {unique_sorted([3, 1, 2, 1, 3])}')
+print(f'[] → {unique_sorted([])}')
+print(f'[-1, -1, 0, 2, 2] → {unique_sorted([-1, -1, 0, 2, 2])}')
+print(f'[1.0, 1, 2.5, 2.5, 0] → {unique_sorted([1.0, 1, 2.5, 2.5, 0])}')
 ```
 
 ![скрин](./images/lab02/01_arrays_unique_sorted.png)
@@ -143,11 +144,12 @@ def flatten(mat: list[list | tuple]) -> list:
         else:
             raise TypeError
     return res
+
 print('flatten')
-print(flatten([[1, 2], [3, 4]]))
-print(flatten([[1, 2], (3, 4, 5)]))
-print(flatten([[1], [], [2, 3]]))
-print(flatten([[1, 2], "ab"]))
+print(f'[[1, 2], [3, 4]] → {flatten([[1, 2], [3, 4]])}')
+print(f'[[1, 2], (3, 4, 5)] → {flatten([[1, 2], (3, 4, 5)])}')
+print(f'[[1], [], [2, 3]] → {flatten([[1], [], [2, 3]])}')
+print(f'[[1, 2], "ab"] → {flatten([[1, 2], "ab"])}')
 ```
 
 ![скрин](./images/lab02/01_arrays_flatten.png)
@@ -159,3 +161,5 @@ print(flatten([[1, 2], "ab"]))
 Если матрица «рваная» (строки разной длины) — `ValueError`.
 
 ![скрин](./)
+
+

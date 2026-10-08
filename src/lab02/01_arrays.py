@@ -28,10 +28,10 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
     return res
 
 # print('unique_sorted')
-# print(unique_sorted([3, 1, 2, 1, 3]))
-# print(unique_sorted([]))
-# print(unique_sorted([-1, -1, 0, 2, 2]))
-# print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
+# print(f'[3, 1, 2, 1, 3] → {unique_sorted([3, 1, 2, 1, 3])}')
+# print(f'[] → {unique_sorted([])}')
+# print(f'[-1, -1, 0, 2, 2] → {unique_sorted([-1, -1, 0, 2, 2])}')
+# print(f'[1.0, 1, 2.5, 2.5, 0] → {unique_sorted([1.0, 1, 2.5, 2.5, 0])}')
 
 
 def flatten(mat: list[list | tuple]) -> list:
@@ -44,8 +44,8 @@ def flatten(mat: list[list | tuple]) -> list:
             raise TypeError
     return res
 print('flatten')
-print(flatten([[1, 2], [3, 4]]))
-print(flatten([[1, 2], (3, 4, 5)]))
-print(flatten([[1], [], [2, 3]]))
-print(flatten([[1, 2], "ab"]))
+print(f'[[1, 2], [3, 4]] → {flatten([[1, 2], [3, 4]])}')
+print(f'[[1, 2], (3, 4, 5)] → {flatten([[1, 2], (3, 4, 5)])}')
+print(f'[[1], [], [2, 3]] → {flatten([[1], [], [2, 3]])}')
+print(f'[[1, 2], "ab"] → {flatten([[1, 2], "ab"])}')
 
