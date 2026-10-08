@@ -2,19 +2,19 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
     a= -100000
     b= 100000
     if len(nums)==0:
-        raise ValueError
+        raise ValueError("Список пуст")
     for i in range(len(nums)):
         if nums[i]<b:
             b=nums[i]
         if nums[i]>a:
             a=nums[i]
     return b, a
-#print('min_max')
-#print(min_max([3, -1, 5, 5, 0]))
-#print(min_max([42]))
-#print(min_max([-5, -2, -9]))
-#print(min_max([1.5, 2, 2.0, -3.1]))
-#print(min_max([])) 
+print('min_max')
+print(f'[3, -1, 5, 5, 0] → {min_max([3, -1, 5, 5, 0])}')
+print(f'[42] → {min_max([42])}')
+print(f'[-5, -2, -9] → {min_max([-5, -2, -9])}')
+print(f'[1.5, 2, 2.0, -3.1] → {min_max([1.5, 2, 2.0, -3.1])}')
+print(f'[] → {min_max([])}') 
 
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
     res = []
