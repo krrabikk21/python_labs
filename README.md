@@ -186,4 +186,103 @@ print(f'[[1, 2], [3]] → {transpose([[1, 2], [3]])}')
 
 ![скрин](./images/lab02/02_matrix_transpose.png)
 
+#### `row_sums(mat: list[list[float | int]]) -> list[float]`
+Сумма по каждой строке. Требуется прямоугольность.
 
+```python
+def row_sums(mat: list[list[float | int]]) -> list[float]:
+    row_len = len(mat[0])
+    res=[]
+    for row in mat:
+        if len(row) != row_len:
+            raise ValueError('рваная матрица')
+    for row in mat:
+        res.append(sum(row))
+    return res
+
+print('row_sums')
+print(f'[[1, 2, 3], [4, 5, 6]] → {row_sums([[1, 2, 3], [4, 5, 6]])}')
+print(f'[[-1, 1], [10, -10]] → {row_sums([[-1, 1], [10, -10]])}')
+print(f'[[0, 0], [0, 0]] → {row_sums([[0, 0], [0, 0]])}')
+print(f'[[1, 2], [3]] → {row_sums([[1, 2], [3]])}')
+```
+
+![скрин](./images/lab02/02_matrix_row_sums.png)
+
+#### `col_sums(mat: list[list[float | int]]) -> list[float]`
+Сумма по каждому столбцу. Требуется прямоугольность.
+```python
+def col_sums(mat: list[list[float | int]]) -> list[float]:
+    row_len = len(mat[0])
+    res=[]
+    for row in mat:
+        if len(row) != row_len:
+            raise ValueError('рваная матрица')
+    for i in range(row_len):
+        res.append(sum(row[i] for row in mat))
+    return res
+
+print('col_sums')
+print(f'[[1, 2, 3], [4, 5, 6]] → {col_sums([[1, 2, 3], [4, 5, 6]])}')
+print(f'[[-1, 1], [10, -10]] → {col_sums([[-1, 1], [10, -10]])}')
+print(f'[[0, 0], [0, 0]] → {col_sums([[0, 0], [0, 0]])}')
+print(f'[[1, 2], [3]] → {col_sums([[1, 2], [3]])}')
+```
+![скрин](./images/lab02/02_matrix_col_sums.png)
+
+### 3 Задание — `tuples.py`
+Работаем с «записями» как с кортежами.
+
+    Определите тип записи студента как кортеж:
+    `(fio: str, group: str, gpa: float)`
+
+    Реализуйте `format_record(rec: tuple[str, str, float]) -> str`
+    Вернуть строку вида:
+    `Иванов И.И., гр. BIVT-25, GPA 4.60`
+    **Правила:**
+        ФИО может быть `«Фамилия Имя Отчество»` или `«Фамилия Имя»` — инициалы формируются из 1–2 имён (в верхнем регистре).
+        Лишние пробелы нужно убрать (`strip`, «схлопнуть» внутри).
+        GPA печатается с **2 знаками** (округление правилами Python).
+        0.0 <= GPA <= 5.0 
+```python
+def format_record(rec: tuple[str, str, float]) -> str:
+    if type(rec) != tuple:
+        raise TypeError("Не кортеж")
+
+    if len(rec) != 3:
+        raise ValueError('В кортеже должно быть 3 элемента')
+
+    fio, group, gpa = rec
+    if type(fio) != str or type(group)!=str:
+        raise TypeError("Фио или группа не строки")
+
+    if type(gpa)!= float:
+        raise TypeError('gpa не цифра')
+    
+    if gpa<0.0 or gpa> 5.0:
+        raise ValueError('gpa должны быть от 0.0 до 5.0')
+
+    fio = " ".join(fio.split())
+    group = group.strip()
+
+    if len(fio)==0 or len(group)==0:
+        raise ValueError("Фио или группа пусты")
+
+    parts = fio.split()
+
+    if len(parts) < 2 or len(parts) > 3:
+        raise ValueError('Фио должно содержать 2 или 3 слова')
+
+    surname= parts[0].capitalize()
+    newfio=''
+    newfio+= surname + ' '
+    for init in parts[1:]:
+        newfio += init[0].upper() + '.'
+    return f'{newfio}, гр. {group}, GPA {gpa:.2f}' 
+
+print(f'("Иванов Иван Иванович", "BIVT-25", 4.6) → {format_record(("Иванов Иван Иванович", "BIVT-25", 4.6))}')
+print(f'("Петров Пётр", "IKBO-12", 5.0) → {format_record(("Петров Пётр", "IKBO-12", 5.0))}')
+print(f'("Петров Пётр Петрович", "IKBO-12", 5.0) → {format_record(("Петров Пётр Петрович", "IKBO-12", 5.0))}')
+print(f'("  сидорова  анна   сергеевна ", "ABB-01", 3.999) → {format_record(("  сидорова  анна   сергеевна ", "ABB-01", 3.999))}')
+```
+![скрин](./images/lab02/03_tuples.png)
