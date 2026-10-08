@@ -96,7 +96,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
         if nums[i]>a:
             a=nums[i]
     return b, a
-    
+
 print('min_max')
 print(f'[3, -1, 5, 5, 0] → {min_max([3, -1, 5, 5, 0])}')
 print(f'[42] → {min_max([42])}')
@@ -160,6 +160,30 @@ print(f'[[1, 2], "ab"] → {flatten([[1, 2], "ab"])}')
 Поменять строки и столбцы местами. Пустая матрица `[]` → `[]`.
 Если матрица «рваная» (строки разной длины) — `ValueError`.
 
-![скрин](./)
+```python
+def transpose(mat: list[list[float | int]]) -> list[list]:
+    res=[]
+    if mat == []:
+        return []
+    row_len = len(mat[0])
+    for row in mat:
+        if len(row) != row_len:
+            raise ValueError('рваная матрица')
+    for col in range(row_len):
+        new_row = []
+        for row in mat:
+            new_row.append(row[col])
+        res.append(new_row)
+    return res
+
+print('transpose')
+print(f'[[1, 2, 3]] → {transpose([[1, 2, 3]])}')
+print(f'[[1], [2], [3]] → {transpose([[1], [2], [3]])}')
+print(f'[[1, 2], [3, 4]] → {transpose([[1, 2], [3, 4]])}')
+print(f'[] → {transpose([])}')
+print(f'[[1, 2], [3]] → {transpose([[1, 2], [3]])}')
+```
+
+![скрин](./images/lab02/02_matrix_transpose.png)
 
 

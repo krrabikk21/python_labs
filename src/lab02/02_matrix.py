@@ -5,7 +5,7 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
     row_len = len(mat[0])
     for row in mat:
         if len(row) != row_len:
-            raise ValueError
+            raise ValueError('рваная матрица')
     for col in range(row_len):
         new_row = []
         for row in mat:
