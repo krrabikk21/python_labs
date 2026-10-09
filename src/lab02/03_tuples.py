@@ -15,11 +15,10 @@ def format_record(rec: tuple[str, str, float]) -> str:
     if gpa<0.0 or gpa> 5.0:
         raise ValueError('gpa должны быть от 0.0 до 5.0')
 
-    fio = " ".join(fio.split())
     group = group.strip()
 
-    if len(fio)==0 or len(group)==0:
-        raise ValueError("Фио или группа пусты")
+    if len(group)==0:
+        raise ValueError("Группа не может быть пуста")
 
     parts = fio.split()
 
