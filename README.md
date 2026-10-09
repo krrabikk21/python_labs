@@ -255,7 +255,7 @@ def format_record(rec: tuple[str, str, float]) -> str:
     if type(fio) != str or type(group)!=str:
         raise TypeError("Фио или группа не строки")
 
-    if type(gpa)!= float:
+    if type(gpa)!= float and type(gpa)!=int:
         raise TypeError('gpa не цифра')
     
     if gpa<0.0 or gpa> 5.0:
