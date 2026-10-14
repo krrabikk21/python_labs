@@ -3,21 +3,21 @@
 ### Задание А - `src/lib/text.py`
 Реализуйте функции:
 
-    `normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str`
-        Если `casefold=True` — привести к casefold (лучше, чем `lower` для Юникода). Если `casefold=False` - используем lower().
-        Если `yo2e=True` — заменить все `ё/Ё` на `е/Е`.
+`normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str`
+    Если `casefold=True` — привести к casefold (лучше, чем `lower` для Юникода). Если `casefold=False` - используем lower().
+    Если `yo2e=True` — заменить все `ё/Ё` на `е/Е`.
         Убрать невидимые управляющие символы (например, `\t`, `\r`) → заменить на пробелы, схлопнуть повторяющиеся пробелы в один.
-    `tokenize(text: str) -> list[str]`
+`tokenize(text: str) -> list[str]`
 
     Разбить на «слова» по небуквенно-цифровым разделителям.
     В качестве слова считаем последовательности символов `\w` (буквы/цифры/подчёркивание) плюс дефис внутри слова (например, `по-настоящему`).
     Числа (например, `2025`) считаем словами.
 
-    `count_freq(tokens: list[str]) -> dict[str, int]`
+`count_freq(tokens: list[str]) -> dict[str, int]`
 
     Подсчитать частоты, вернуть словарь слово → количество. 
     
-    `top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]`
+`top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]`
 
     Вернуть топ-N по убыванию частоты; при равенстве — по алфавиту слова.
 
