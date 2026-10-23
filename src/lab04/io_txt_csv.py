@@ -57,3 +57,8 @@ def write_csv(rows: list[tuple | list], path: str | Path, header: tuple[str, ...
             writer.writerow(header)
         for row in rows:
             writer.writerow(row)
+if __name__ == "__main__":
+    txt = read_text("data/lab04/input.txt")
+    print(txt)  # должен вернуть строку
+    write_csv([("word","count"),("test",3)], "data/lab04/check.csv")
+    print('csv создан')  # создаст CSV
