@@ -112,11 +112,15 @@ if __name__ == "__main__":
 
 #### Примеры запуска
 Входные данные:
+
 !['скрин'](../../images/lab05/csv_in.png)
+
 !['скрин'](../../images/lab05/json_in.png)
 
 Результат:
+
 !['скрин'](../../images/lab05/json_out.png)
+
 !['скрин'](../../images/lab05/csv_out.png)
 
 ### Задание B — CSV → XLSX
@@ -189,9 +193,11 @@ if __name__ == "__main__":
 ```
 #### Примеры запуска
 Входные данные:
+
 !['скрин'](../../images/lab05/cities_in.png)
 
 Результат:
+
 !['скрин'](../../images/lab05/cities_out.png)
 
 
