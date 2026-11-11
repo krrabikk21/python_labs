@@ -1,6 +1,6 @@
-## Лабораторная работа №6
+# Лабораторная работа №6
 
-### Задание А - `cli_text.py`
+## Задание А - `cli_text.py`
 
 - `cli_text.py` — подкоманды cat (вывод файла) и stats (частоты слов);
 - `cli_convert.py` — подкоманды json2csv, csv2xlsx, csv2json (конвертация с помощью функций из ЛР5).
@@ -83,23 +83,144 @@ def main() -> None:
 if __name__ == "__main__":
     main() 
 ```
-#### Подкоманда cat
+### Подкоманда cat
 
 Выводит файл построчно, флаг `-n` добавляет номера строк.
 
 Запуск с нумерацией строк:
 ``` python
-python -m src.lab06.cli_text cat --input data/samples/people.csv -n
+py -m src.lab06.cli_text cat --input data/samples/people.csv -n
 ```
 !['скрин'](../../images/lab06/cat-n.png)
 
 
-#### Подкоманда stats
+### Подкоманда stats
 
 Считает общее число слов, число уникальных слов и выводит топ самых частых слов (по умолчанию 5).
 
 Запуск топ 5:
 ``` python
-python -m src.lab06.cli_text stats --input data/samples/text.txt --top 5
+py -m src.lab06.cli_text stats --input data/samples/text.txt --top 5
 ```
 !['скрин'](../../images/lab06/stats.png)
+
+## Задание А - `cli_convert.py`
+Утилита конвертирует данные между форматами JSON, CSV и XLSX. Сама конвертация выполняется функциями из ЛР5, а пути из терминала перед вызовом превращаются в объекты Path.
+```python
+"""CLI-конвертеры данных: json2csv, csv2json, csv2xlsx.
+
+Запуск:
+    python -m src.lab06.cli_convert json2csv --in data/samples/people.json --out data/out/people.csv
+    python -m src.lab06.cli_convert csv2json --in data/samples/people.csv --out data/out/people.json
+    python -m src.lab06.cli_convert csv2xlsx --in data/samples/people.csv --out data/out/people.xlsx
+"""
+import argparse
+
+from src.lab05.json_csv import json_to_csv, csv_to_json
+from src.lab05.csv_xlsx import csv_to_xlsx
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Конвертеры данных (JSON, CSV, XLSX)")
+    sub = parser.add_subparsers(dest="cmd")
+
+    p1 = sub.add_parser("json2csv", help="Конвертировать JSON в CSV")
+    p1.add_argument("--in", dest="input", required=True, help="Входной .json файл")
+    p1.add_argument("--out", dest="output", required=True, help="Выходной .csv файл")
+
+    p2 = sub.add_parser("csv2json", help="Конвертировать CSV в JSON")
+    p2.add_argument("--in", dest="input", required=True, help="Входной .csv файл")
+    p2.add_argument("--out", dest="output", required=True, help="Выходной .json файл")
+
+    p3 = sub.add_parser("csv2xlsx", help="Конвертировать CSV в XLSX")
+    p3.add_argument("--in", dest="input", required=True, help="Входной .csv файл")
+    p3.add_argument("--out", dest="output", required=True, help="Выходной .xlsx файл")
+
+    args = parser.parse_args()
+
+    if args.cmd is None:
+        parser.error("нужно указать подкоманду: json2csv, csv2json или csv2xlsx")
+
+    try:
+        if args.cmd == "json2csv":
+            json_to_csv(args.input, args.output)
+        elif args.cmd == "csv2json":
+            csv_to_json(args.input, args.output)
+        elif args.cmd == "csv2xlsx":
+            csv_to_xlsx(args.input, args.output)
+        print(f"Готово: {args.input} -> {args.output}")
+    except FileNotFoundError as e:
+        print(f"Ошибка: файл не найден ({e})")
+    except ValueError as e:
+        print(f"Ошибка: {e}")
+
+
+if __name__ == "__main__":
+    main()
+```
+### json to csv
+Конвертирует JSON в CSV.
+```python
+py -m src.lab06.cli_convert json2csv --in data/samples/people.json --out data/out/people.csv
+```
+!['скрин'](../../images/lab06/csv_from_json.png)
+
+### csv to json
+Конвертирует CSV в JSON.
+```python
+py -m src.lab06.cli_convert csv2json --in data/samples/people.csv --out data/out/people.json
+```
+!['скрин'](../../images/lab06/json_from_csv.png)
+
+### csv to xlsx
+Конвертирует CSV в XLSX.
+```python
+python -m src.lab06.cli_convert csv2xlsx --in data/samples/people.csv --out data/out/people.xlsx
+```
+!['скрин'](../../images/lab06/xlx_from_csv.png)
+
+## Справка
+### Общая справка 
+Справка по cli_text:
+```python
+py -m src.lab06.cli_text --help
+```
+
+Справка по cli_convert:
+```python
+py -m src.lab06.cli_convert --help
+```
+!['скрин'](../../images/lab06/help.png)
+
+### Справка по подкомандам cli_text
+Справка по `cat`:
+```python
+py -m src.lab06.cli_text cat --help
+```
+!['скрин'](../../images/lab06/cat_help.png)
+
+Справка по `stats`:
+```python
+py -m src.lab06.cli_text stats --help
+```
+!['скрин'](../../images/lab06/stats_help.png)
+
+### Справка по подкомандам cli_convert:
+Справка по json to csv:
+```python
+py -m src.lab06.cli_convert json2csv --help
+```
+!['скрин'](../../images/lab06/json2csv_help.png)
+
+Справка по csv to json:
+```python
+py -m src.lab06.cli_convert csv2json --help
+```
+!['скрин'](../../images/lab06/csv2json_help.png)
+
+Справка по csv to xlsx:
+```python
+py -m src.lab06.cli_convert csv2xlsx --help
+```
+!['скрин'](../../images/lab06/csv2xlsx_help.png)
+

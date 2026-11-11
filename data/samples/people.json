@@ -1,27 +1,27 @@
 [
   {
     "name": "Alice",
-    "age": 22,
+    "age": "22",
     "city": "SPB"
   },
   {
     "name": "Bob",
-    "age": 25,
+    "age": "25",
     "city": "Moscow"
   },
   {
     "name": "Carlos",
-    "age": 30,
-    "city": "Kazan"
+    "age": "67",
+    "city": "Stockholm"
   },
   {
     "name": "Dana",
-    "age": 21,
-    "city": "SPB"
+    "age": "21",
+    "city": "Sibuya"
   },
   {
-    "name": "Andrey",
-    "age": 27,
-    "city": "Novosibirsk"
+    "name": "Irina",
+    "age": "32",
+    "city": "SPB"
   }
 ]

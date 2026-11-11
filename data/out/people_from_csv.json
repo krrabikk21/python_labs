@@ -11,17 +11,17 @@
   },
   {
     "name": "Carlos",
-    "age": "30",
-    "city": "Kazan"
+    "age": "67",
+    "city": "Stockholm"
   },
   {
     "name": "Dana",
     "age": "21",
-    "city": "SPB"
+    "city": "Sibuya"
   },
   {
-    "name": "Andrey",
-    "age": "27",
-    "city": "Novosibirsk"
+    "name": "Irina",
+    "age": "32",
+    "city": "SPB"
   }
 ]
