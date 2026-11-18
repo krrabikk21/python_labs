@@ -1,0 +1,23 @@
+task,n,impl,seconds
+sort,1000,sorted,0.000198
+sort,1000,merge_sort,0.002459
+sort,1000,bubble,0.091389
+sort,1000,insertion,0.039533
+sort,1000,selection,0.037823
+sort,10000,sorted,0.001723
+sort,10000,merge_sort,0.029750
+sort,10000,bubble,10.099323
+sort,10000,insertion,4.966112
+sort,10000,selection,4.066554
+sort,100000,sorted,0.021132
+sort,100000,merge_sort,0.393648
+sort,100000,bubble,> 60
+sort,100000,insertion,> 60
+sort,100000,selection,> 60
+search,100000,linear,93.516888
+search,100000,sort_for_binary,0.021377
+search,100000,binary,0.047295
+two_sum,1000,brute,0.057998
+two_sum,1000,fast,0.000284
+two_sum,10000,brute,15.041109
+two_sum,10000,fast,0.006522
