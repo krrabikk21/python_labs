@@ -316,7 +316,8 @@ fio,birthdate,group,gpa
 !['скрин'](../../images/lab09/rud.png)
 - ошибка при неверном gpa: 
 !['скрин'](../../images/lab09/error.png)
-- статистика (★): 
+- статистика (★):
+ 
 !['скрин'](../../images/lab09/stats.png)
 
 ### Итоговый `data/lab09/students.csv`
