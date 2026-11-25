@@ -14,3 +14,4 @@
 | 6 | CLI‑утилиты с argparse | [Открыть README](src/lab06/README.md) |
 | 7 | Поиск, сортировка и измерение времени | [Открыть README](src/lab07/README.md) |
 | 8 | Модель данных без классов | [Открыть README](src/lab08/README.md) |
+| 8 | «База данных» на CSV: CRUD-функции | [Открыть README](src/lab09/README.md) |
